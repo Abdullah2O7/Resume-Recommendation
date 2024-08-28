@@ -26,7 +26,7 @@ public class TestBase {
         driver.get(loginURL);
     }
 
-   @AfterMethod
+//   @AfterMethod
     public void quit() {
         driver.quit();
     }
