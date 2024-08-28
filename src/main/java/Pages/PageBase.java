@@ -16,6 +16,8 @@ public class PageBase {
     }
     public void clickOn(By by)
     {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();
     }
     public void sendText(By by, String text)
@@ -23,6 +25,11 @@ public class PageBase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).sendKeys(text);
+    }
+    public String getText(By by){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        return driver.findElement(by).getText();
     }
     public String getPageUrl()
     {
